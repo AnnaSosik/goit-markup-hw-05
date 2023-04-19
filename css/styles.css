@@ -96,6 +96,7 @@ body {
   border-bottom: 1px solid #ececec;
   display: flex;
   align-items: center;
+  margin: auto;
 }
 
 .head {
@@ -142,6 +143,10 @@ body {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.1;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:is(:hover, :focus, ) {
@@ -168,6 +173,8 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
   align-items: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:is(:hover, :focus, ) {
@@ -178,6 +185,8 @@ body {
   background-color: var(--brand-color-white);
   fill: var(--brand-color-grey);
   margin-right: 10px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-icon:is(:hover, :focus, ) {
@@ -189,16 +198,20 @@ body {
   fill: var(--brand-color-blue);
 }
 
-.nav-link::after {
-  content: '';
+.nav-link.active::after {
+  content: "";
   position: absolute;
-  bottom: -1px;
   display: block;
   width: 100%;
   height: 4px;
-  fill:solid var(--brand-color-blue);
+  fill: solid var(--brand-color-blue);
   border-radius: 2px;
-  
+  margin-top: 25px;
+  background-color: var(--brand-color-blue);
+}
+
+.underline {
+  position: relative;
 }
 
 /*INDEX.HTML*/
@@ -253,9 +266,7 @@ body {
   padding: 10px 42px;
   border-radius: 4px;
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top-button:is(:hover, :focus) {
@@ -372,6 +383,8 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon {
@@ -398,6 +411,8 @@ body {
 .client-icon {
   fill: var(--icon-background-color-light-grey);
   background-color: var(--brand-color-white);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link {
@@ -409,6 +424,8 @@ body {
   padding-right: 32px;
   padding-bottom: 14.25px;
   padding-left: 32px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -439,6 +456,8 @@ body {
 .grid-item {
   flex-basis: calc(100%- (var(--element-in-row)-1 * var(--gap))) /
     var(--element-in-row);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .grid-item:hover,
@@ -462,6 +481,8 @@ body {
   border: none;
   outline: none;
   border-radius: 4px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:is(:hover, :focus, ) {
@@ -507,6 +528,45 @@ body {
   padding-bottom: 20px;
   padding-top: 20px;
   text-align: start;
+}
+
+.card-description {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(33, 150, 243, 0.9);
+  color: var(--brand-color-white);
+  padding-top: 49px;
+  padding-left: 24px;
+  padding-right: 45px;
+  padding-bottom: 49px;
+  text-align: start;
+  font-size: 18px;
+  line-height: 1, 55;
+  letter-spacing: 0, 03;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-container > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-item:hover .card-description {
+  transform: translateY(0);
+  cursor: pointer;
 }
 
 /* FOOTER-COMMON*/
@@ -555,6 +615,8 @@ body {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-style: normal;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .address-link:is(:hover, :focus, ) {
@@ -595,6 +657,8 @@ body {
   align-items: center;
   display: flex;
   background: rgba(255, 255, 255, 0.1);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icon-link:hover,
@@ -609,8 +673,8 @@ body {
 
 .backdrop {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  right: 0px;
+  bottom: 0px;
   left: 0px;
   top: 0px;
   background: rgba(0, 0, 0, 0.2);
@@ -621,6 +685,10 @@ body {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale (0) rotate(40 deg);
 }
 
 .modal {
@@ -634,7 +702,6 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
 
   transform: translate(-50%, -50%) scale(1) rotate(0);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -663,4 +730,3 @@ body {
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0) rotate(-180deg);
 }
-
