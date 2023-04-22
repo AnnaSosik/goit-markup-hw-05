@@ -249,9 +249,9 @@ body {
   cursor: pointer;
   border: none;
   padding: 10px 42px;
-  border-radius: 4px;
-
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top-button:is(:hover, :focus) {
@@ -320,17 +320,13 @@ body {
   padding: 27px;
   top: 224px;
   text-transform: uppercase;
-
 }
-
-
 
 /* Section team */
 
 .team-background {
   background-color: var(--brand-background-light);
 }
-
 
 .team-card {
   background-color: var(--brand-color-white);
@@ -417,7 +413,6 @@ body {
   background-color: var(--brand-color-white);
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
- 
 }
 
 .client-link {
