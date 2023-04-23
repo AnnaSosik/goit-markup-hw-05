@@ -189,7 +189,7 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.active::after {
+.nav-link.active::after {
   content: "";
   position: absolute;
   display: block;
@@ -199,8 +199,16 @@ body {
   border-radius: 2px;
   top: 45px;
   background-color: var(--brand-color-blue);
+  color: var(--brand-color-blue);
   
 }
+
+.nav-link.active {
+
+  color: var(--brand-color-blue);
+  
+} 
+
 
 /*INDEX.HTML*/
 
@@ -473,20 +481,20 @@ body {
 }
 
 .filter-button {
-  padding: 6px 22px;
-  border-radius: 4px;
-
   font-family: var(--main-font);
   background-color: var(--brand-background-light);
+  color:var(--brand-color-black);
   font-weight: 500;
+  font-style: normal;
   font-size: 16px;
   line-height: 1.6;
-
   letter-spacing: 0.03em;
   cursor: pointer;
   border: none;
   outline: none;
   border-radius: 4px;
+  padding: 6px 22px;
+  
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -497,9 +505,7 @@ body {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-list {
